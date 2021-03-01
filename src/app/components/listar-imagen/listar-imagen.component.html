@@ -1,0 +1,36 @@
+<app-spinner></app-spinner>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let imagen of listaImagenes" class="col-lg-3">
+            <div class="card border-primary mb-2">
+                <img [src]="imagen.previewURL" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <a [href]="imagen.largeImageURL" target="_blank" class="btn btn-primary">VER IMAGEN</a>
+                  </div>
+                  <div class="card-footer text-muted text-center">
+                      <div class="row">
+                          <div class="col">
+                              <p class="likesViews">Likes</p>
+                              <span class="badge badge-secondary bg-large">{{ imagen.likes }}</span>
+                          </div>
+                          <div class="col">
+                              <p class="likesViews">Views</p>
+                              <span class="badge badge-secondary bg-large">{{ imagen.views }}</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="verPaginacion()" class="paginacion">
+    <ul class="pagination">
+      <li *ngIf="verBotonAnterior()" class="page-item">
+        <a  class="page-link" (click)="paginaSiguiente()" href="#">&laquo; Anterior</a>
+      </li>
+      <li *ngIf="verBotonSiguiente()" class="page-item">
+        <a class="page-link" (click)="paginaSiguiente()" href="#">Siguiente &raquo;</a>
+      </li>
+    </ul>
+</div>
